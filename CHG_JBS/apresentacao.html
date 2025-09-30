@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação - JBS Gamification</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+        }
+
+        .slide {
+            width: 210mm;
+            height: 297mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .slide-content {
+            padding: 60px;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            opacity: 0.9;
+        }
+
+        .team-member {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .team-member h4 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .team-member p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .insight-box h4 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .insight-box p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .data-model {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .entity {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .entity h4 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .entity ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .entity li {
+            font-size: 16px;
+            padding: 5px 0;
+            color: #666;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 60px;
+            font-size: 16px;
+            color: #999;
+        }
+
+        ul.feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.feature-list li {
+            font-size: 20px;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        ul.feature-list li i {
+            color: #667eea;
+            margin-right: 15px;
+            width: 30px;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .tech-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .tech-item i {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .tech-item h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .tech-item p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .slide {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        .er-diagram {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .er-box {
+            display: inline-block;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            min-width: 200px;
+            background: #f8f9fa;
+        }
+
+        .er-box h5 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .er-box ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .er-box li {
+            font-size: 14px;
+            padding: 5px 0;
+            color: #666;
+        }
+
+        .relationship {
+            font-size: 24px;
+            color: #667eea;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Capa -->
+    <div class="slide">
+        <div class="slide-header" style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div class="logo" style="background: white; padding: 20px 40px; border-radius: 20px; margin-bottom: 30px;">
+                <img src="images/swift.svg" alt="Swift Logo" style="height: 80px; width: auto;">
+            </div>
+            <h1>Swift Gamification</h1>
+            <p class="subtitle">Plataforma de Gamificação Corporativa</p>
+            <p style="margin-top: 40px; font-size: 20px;">Continue sua jornada de crescimento!</p>
+            <p style="margin-top: 60px; font-size: 18px; opacity: 0.8;">Challenge JBS - Sprint 2</p>
+            <p style="font-size: 18px; opacity: 0.8;">FIAP - 2025</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: Equipe -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2><i class="fas fa-users me-3"></i>Equipe de Desenvolvimento</h2>
+            
+            <div class="team-member">
+                <h4>Nicolas Mantovani</h4>
+                <p><strong>RM:</strong> 562306</p>
+                <p><strong>Função:</strong> Desenvolvedor Full Stack / IoT /Project Manager</p>
+            </div>
+
+            <div class="team-member">
+                <h4>Othon Godoy</h4>
+                <p><strong>RM:</strong>563437</p>
+                <p><strong>Função:</strong> Backend Developer / DevOps</p>
+            </div>
+
+            <div class="team-member">
+                <h4>Vinicius Branco</h4>
+                <p><strong>RM:</strong>565389</p>
+                <p><strong>Função:</strong> UX/UI Designer</p>
+            </div>
+
+            <div class="team-member">
+                <h4>Rafaela Alves</h4>
+                <p><strong>RM:</strong>563377</p>
+                <p><strong>Função:</strong>Front-End Developer</p>
+            </div>
+
+            <div class="team-member">
+                <h4> Giovanni Assunção Wanderley</h4>
+                <p><strong>RM:</strong>558985</p>
+                <p><strong>Função:</strong> Scrum Master / QA</p>
+            </div>
+        </div>
+        <div class="slide-number">2</div>
+        <div class="footer">Swift Gamification Platform - JBS - FIAP 2025</div>
+    </div>
+
+    <!-- Slide 3: Visão Geral do Projeto -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2><i class="fas fa-rocket me-3"></i>Visão Geral do Projeto</h2>
+            
+            <h3>Objetivo</h3>
+            <p style="font-size: 18px; line-height: 1.8; margin-bottom: 30px;">
+                Desenvolver uma plataforma de gamificação corporativa que engaje colaboradores da JBS 
+                através de trilhas de aprendizado, missões e sistema de pontuação, promovendo o 
+                desenvolvimento contínuo e a cultura de inovação.
+            </p>
+
+            <h3>Principais Funcionalidades</h3>
+            <ul class="feature-list">
+                <li><i class="fas fa-graduation-cap"></i>Trilhas de Aprendizado Personalizadas</li>
+                <li><i class="fas fa-trophy"></i>Sistema de Missões e Desafios</li>
+                <li><i class="fas fa-chart-line"></i>Ranking e Gamificação</li>
+                <li><i class="fas fa-star"></i>Sistema de Pontuação e Recompensas</li>
+                <li><i class="fas fa-users"></i>Colaboração em Equipe</li>
+            </ul>
+        </div>
+        <div class="slide-number">3</div>
+        <div class="footer">Swift Gamification Platform - JBS - FIAP 2025</div>
+    </div>
+
+    <!-- Slide 4: Tecnologias -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2><i class="fas fa-code me-3"></i>Stack Tecnológico</h2>
+            
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <i class="fab fa-html5"></i>
+                    <h4>HTML5</h4>
+                    <p>Estrutura semântica e acessível</p>
+                </div>
+
+                <div class="tech-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <h4>CSS3</h4>
+                    <p>Estilização moderna e animações</p>
+                </div>
+
+                <div class="tech-item">
+                    <i class="fab fa-bootstrap"></i>
+                    <h4>Bootstrap 5</h4>
+                    <p>Framework responsivo</p>
+                </div>
+
+                <div class="tech-item">
+                    <i class="fab fa-js"></i>
+                    <h4>JavaScript ES6+</h4>
+                    <p>Interatividade e dinâmica</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; background: #f8f9fa; padding: 25px; border-radius: 10px;">
+                <h3 style="font-size: 22px; margin-bottom: 15px;">Características Técnicas</h3>
+                <ul style="font-size: 18px; line-height: 2;">
+                    <li>✅ Design Responsivo (Mobile-first)</li>
+                    <li>✅ Single Page Application (SPA)</li>
+                    <li>✅ Animações e Transições Suaves</li>
+                    <li>✅ Acessibilidade (WCAG 2.1)</li>
+                    <li>✅ Performance Otimizada</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-number">4</div>
+        <div class="footer">Swift Gamification Platform - JBS - FIAP 2025</div>
+    </div>
+
+    <!-- Slide 5: Modelagem de Dados (Parte 1) -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2><i class="fas fa-database me-3"></i>Modelagem de Dados</h2>
+            
+            <div class="data-model">
+                <div class="entity">
+                    <h4><i class="fas fa-user"></i> Usuário</h4>
+                    <ul>
+                        <li>• <strong>id:</strong> Identificador único</li>
+                        <li>• <strong>nome:</strong> Nome completo</li>
+                        <li>• <strong>email:</strong> Email corporativo</li>
+                        <li>• <strong>senha:</strong> Senha criptografada</li>
+                        <li>• <strong>pontos_totais:</strong> Pontuação acumulada</li>
+                        <li>• <strong>nivel:</strong> Nível do usuário</li>
+                        <li>• <strong>cargo:</strong> Cargo na empresa</li>
+                        <li>• <strong>departamento:</strong> Departamento</li>
+                        <li>• <strong>data_cadastro:</strong> Data de registro</li>
+                        <li>• <strong>foto_perfil:</strong> URL da foto</li>
+                    </ul>
+                </div>
+
+                <div class="entity">
+                    <h4><i class="fas fa-road"></i> Trilha</h4>
+                    <ul>
+                        <li>• <strong>id:</strong> Identificador único</li>
+                        <li>• <strong>titulo:</strong> Nome da trilha</li>
+                        <li>• <strong>descricao:</strong> Descrição completa</li>
+                        <li>• <strong>categoria:</strong> Categoria (Liderança, Inovação, etc.)</li>
+                        <li>• <strong>total_modulos:</strong> Número de módulos</li>
+                        <li>• <strong>pontos_totais:</strong> Pontos ao completar</li>
+                        <li>• <strong>icone:</strong> Ícone da trilha</li>
+                        <li>• <strong>cor:</strong> Cor tema</li>
+                        <li>• <strong>status:</strong> Ativo/Inativo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">5</div>
+        <div class="footer">Swift Gamification Platform - JBS - FIAP 2025</div>
+    </div>
+
+    <!-- Slide 6: Modelagem de Dados (Parte 2) -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2><i class="fas fa-database me-3"></i>Modelagem de Dados (cont.)</h2>
+            
+            <div class="data-model">
+                <div class="entity">
+                    <h4><i class="fas fa-book"></i> Módulo</h4>
+                    <ul>
+                        <li>• <strong>id:</strong> Identificador único</li>
+                        <li>• <strong>trilha_id:</strong> ID da trilha (FK)</li>
+                        <li>• <strong>titulo:</strong> Nome do módulo</li>
+                        <li>• <strong>descricao:</strong> Descrição do conteúdo</li>
+                        <li>• <strong>ordem:</strong> Ordem na trilha</li>
+                        <li>• <strong>duracao_estimada:</strong> Tempo em minutos</li>
+                        <li>• <strong>pontos:</strong> Pontos ao completar</li>
+                        <li>• <strong>conteudo:</strong> Conteúdo do módulo</li>
+                        <li>• <strong>tipo:</strong> Vídeo, Texto, Quiz, etc.</li>
+                    </ul>
+                </div>
+
+                <div class="entity">
+                    <h4><i class="fas fa-trophy"></i> Missão</h4>
+                    <ul>
+                        <li>• <strong>id:</strong> Identificador único</li>
+                        <li>• <strong>titulo:</strong> Nome da missão</li>
+                        <li>• <strong>descricao:</strong> Descrição da missão</li>
+                        <li>• <strong>tipo:</strong> Individual/Equipe</li>
+                        <li>• <strong>pontos:</strong> Pontos de recompensa</li>
+                        <li>• <strong>data_inicio:</strong> Data de início</li>
+                        <li>• <strong>data_fim:</strong> Data de término</li>
+                        <li>• <strong>status:</strong> Ativa/Concluída/Futura</li>
+                        <li>• <strong>criterios:</strong> Critérios de conclusão</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">6</div>
+        <div class="footer">Swift Gamification Platform - JBS - FIAP 2025</div>
+    </div>
+
+    <!-- Slide 7: Relacionamentos -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2><i class="fas fa-project-diagram me-3"></i>Relacionamentos do Banco de Dados</h2>
+            
+            <div class="er-diagram">
+                <div class="er-box">
+                    <h5>Usuario_Trilha</h5>
+                    <ul>
+                        <li>usuario_id (FK)</li>
+                        <li>trilha_id (FK)</li>
+                        <li>progresso (%)</li>
+                        <li>data_inicio</li>
+                        <li>data_conclusao</li>
+                        <li>status</li>
+                    </ul>
+                </div>
+
+                <div class="er-box">
+                    <h5>Usuario_Modulo</h5>
+                    <ul>
+                        <li>usuario_id (FK)</li>
+                        <li>modulo_id (FK)</li>
+                        <li>status</li>
+                        <li>nota</li>
+                        <li>tempo_gasto</li>
+                        <li>data_conclusao</li>
+                    </ul>
+                </div>
+
+                <div class="er-box">
+                    <h5>Usuario_Missao</h5>
+                    <ul>
+                        <li>usuario_id (FK)</li>
+                        <li>missao_id (FK)</li>
+                        <li>status</li>
+                        <li>progresso (%)</li>
+                        <li>data_conclusao</li>
+                    </ul>
+                </div>
+
+                <div class="er-box">
+                    <h5>Conquista</h5>
+                    <ul>
+                        <li>id (PK)</li>
+                        <li>titulo</li>
+                        <li>descricao</li>
+                        <li>icone</li>
+                        <li>criterio</li>
+                        <li>pontos_bonus</li>
+                    </ul>
+                </div>
+
+                <div class="er-box">
+                    <h5>Usuario_Conquista</h5>
+                    <ul>
+                        <li>usuario_id (FK)</li>
+                        <li>conquista_id (FK)</li>
+                        <li>data_obtencao</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">7</div>
+        <div class="footer">Swift Gamification Platform - JBS - FIAP 2025</div>
+    </div>
+
+    <!-- Slide 8: Insights (1) -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2><i class="fas fa-lightbulb me-3"></i>Insights e Análises</h2>
+            
+            <div class="insight-box">
+                <h4>1. Engajamento através da Gamificação Aumenta a Retenção de Conhecimento</h4>
+                <p>
+                    <strong>Análise:</strong> Estudos mostram que plataformas gamificadas aumentam em até 60% 
+                    a retenção de conhecimento comparado a métodos tradicionais de treinamento. Ao incorporar 
+                    elementos como pontos, badges e rankings, os colaboradores se sentem mais motivados a 
+                    completar trilhas de aprendizado.
+                </p>
+                <p style="margin-top: 15px;">
+                    <strong>Aplicação na JBS:</strong> Implementar um sistema de recompensas progressivo onde 
+                    cada módulo completado desbloqueia novos desafios, mantendo os colaboradores engajados e 
+                    motivados a continuar seu desenvolvimento profissional.
+                </p>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                <h4 style="color: #667eea; margin-bottom: 10px;">Métricas Esperadas:</h4>
+                <ul style="font-size: 18px; line-height: 2;">
+                    <li>📈 +40% de engajamento nos treinamentos</li>
+                    <li>🎯 +60% de retenção de conhecimento</li>
+                    <li>⏱️ -30% no tempo de conclusão de trilhas</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-number">8</div>
+        <div class="footer">Swift Gamification Platform - JBS - FIAP 2025</div>
+    </div>
+
+    <!-- Slide 9: Insights (2) -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2><i class="fas fa-lightbulb me-3"></i>Insights e Análises (cont.)</h2>
+            
+            <div class="insight-box">
+                <h4>2. Competição Saudável Impulsiona o Desempenho da Equipe</h4>
+                <p>
+                    <strong>Análise:</strong> O sistema de ranking e missões em equipe promove uma competição 
+                    saudável entre colaboradores e departamentos. Dados indicam que ambientes com elementos 
+                    competitivos estruturados apresentam aumento de 25% na produtividade e 35% na colaboração 
+                    entre equipes.
+                </p>
+                <p style="margin-top: 15px;">
+                    <strong>Aplicação na JBS:</strong> Criar missões semanais que incentivem tanto a 
+                    performance individual quanto o trabalho em equipe, equilibrando competição com 
+                    colaboração. O ranking público motiva os colaboradores enquanto missões coletivas 
+                    fortalecem o espírito de equipe.
+                </p>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                <h4 style="color: #667eea; margin-bottom: 10px;">Benefícios Esperados:</h4>
+                <ul style="font-size: 18px; line-height: 2;">
+                    <li>🤝 +35% em colaboração entre equipes</li>
+                    <li>💪 +25% em produtividade individual</li>
+                    <li>🏆 Cultura de excelência e melhoria contínua</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-number">9</div>
+        <div class="footer">Swift Gamification Platform - JBS - FIAP 2025</div>
+    </div>
+
+    <!-- Slide 10: Insights (3) -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2><i class="fas fa-lightbulb me-3"></i>Insights e Análises (cont.)</h2>
+            
+            <div class="insight-box">
+                <h4>3. Personalização de Trilhas Aumenta a Relevância do Aprendizado</h4>
+                <p>
+                    <strong>Análise:</strong> Plataformas que oferecem trilhas personalizadas baseadas no 
+                    cargo, departamento e objetivos individuais apresentam 50% mais taxa de conclusão. 
+                    Colaboradores se sentem mais valorizados quando o conteúdo é relevante para suas 
+                    necessidades específicas.
+                </p>
+                <p style="margin-top: 15px;">
+                    <strong>Aplicação na JBS:</strong> Desenvolver trilhas específicas para diferentes áreas 
+                    (Produção, Qualidade, Logística, Administrativo) e níveis hierárquicos, permitindo que 
+                    cada colaborador tenha uma jornada de aprendizado alinhada com seus objetivos de carreira 
+                    e necessidades da empresa.
+                </p>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                <h4 style="color: #667eea; margin-bottom: 10px;">Impacto Esperado:</h4>
+                <ul style="font-size: 18px; line-height: 2;">
+                    <li>✅ +50% taxa de conclusão de trilhas</li>
+                    <li>🎓 Desenvolvimento direcionado por cargo</li>
+                    <li>📊 Maior alinhamento com objetivos estratégicos</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-number">10</div>
+        <div class="footer">Swift Gamification Platform - JBS - FIAP 2025</div>
+    </div>
+
+    <!-- Slide 11: Demonstração Visual -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2><i class="fas fa-desktop me-3"></i>Interface da Plataforma</h2>
+            
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; margin-bottom: 20px;">
+                <h3 style="font-size: 22px; margin-bottom: 20px; color: #667eea;">Telas Principais</h3>
+                <ul style="font-size: 18px; line-height: 2.5;">
+                    <li><strong>🔐 Login:</strong> Autenticação com email corporativo ou Google</li>
+                    <li><strong>🏠 Dashboard:</strong> Visão geral de missões, trilhas e ranking</li>
+                    <li><strong>📚 Trilhas:</strong> Catálogo de trilhas com progresso visual</li>
+                    <li><strong>🎯 Módulos:</strong> Conteúdo interativo com vídeos e quizzes</li>
+                    <li><strong>🏆 Missões:</strong> Desafios individuais e em equipe</li>
+                    <li><strong>👤 Perfil:</strong> Estatísticas, conquistas e histórico</li>
+                    <li><strong>📊 Ranking:</strong> Classificação da equipe em tempo real</li>
+                </ul>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 25px; border-radius: 10px; border-left: 5px solid #667eea;">
+                <h4 style="font-size: 20px; margin-bottom: 10px; color: #667eea;">Design Responsivo</h4>
+                <p style="font-size: 18px;">
+                    A plataforma foi desenvolvida com abordagem mobile-first, garantindo experiência 
+                    otimizada em smartphones, tablets e desktops.
+                </p>
+            </div>
+        </div>
+        <div class="slide-number">11</div>
+        <div class="footer">Swift Gamification Platform - JBS - FIAP 2025</div>
+    </div>
+
+    <!-- Slide 12: Conclusão -->
+    <div class="slide">
+        <div class="slide-header" style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <h1 style="font-size: 42px; margin-bottom: 30px;">Conclusão</h1>
+            
+            <div style="max-width: 800px; text-align: left;">
+                <p style="font-size: 22px; line-height: 1.8; margin-bottom: 30px;">
+                    A plataforma JBS Gamification representa uma solução moderna e eficaz para engajamento 
+                    e desenvolvimento de colaboradores, utilizando princípios de gamificação para tornar 
+                    o aprendizado mais atrativo e efetivo.
+                </p>
+
+                <div style="background: rgba(255,255,255,0.2); padding: 25px; border-radius: 15px; margin-bottom: 30px;">
+                    <h3 style="font-size: 24px; margin-bottom: 15px; color: #f5f5f5;"  >Diferenciais da Solução:</h3>
+                    <ul style="font-size: 20px; line-height: 2;">
+                        <li>✨ Interface intuitiva e responsiva</li>
+                        <li>🎮 Gamificação aplicada ao aprendizado</li>
+                        <li>📈 Métricas e acompanhamento em tempo real</li>
+                        <li>🤝 Foco em colaboração e competição saudável</li>
+                        <li>🚀 Escalável para toda a organização</li>
+                    </ul>
+                </div>
+
+                <p style="font-size: 20px; text-align: center; margin-top: 40px;">
+                    <strong>Obrigado pela atenção!</strong>
+                </p>
+            </div>
+        </div>
+        <div class="slide-number" style="color: white;">12</div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Para facilitar a conversão para PDF
+            console.log('Apresentação carregada. Use Ctrl+P para salvar como PDF.');
+        };
+    </script>
+</body>
+</html>
+

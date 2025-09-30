@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Gamification - Continue sua jornada de crescimento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="login-container">
+        <div class="login-card">
+            <div class="logo-container">
+                <div class="logo-swift">
+                    <img src="images/swift.svg" alt="Swift Logo" style="width: 200px; height: auto; margin-bottom: 10px;">
+                </div>
+                <h1 class="brand-title">Swift Gamification</h1>
+                <p class="brand-subtitle">Continue sua jornada de crescimento!</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">Email corporativo</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" class="form-control" id="email" placeholder="seu.email@jbs.com.br" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword()">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-login">Entrar</button>
+                
+                <div class="divider">
+                    <span>ou continue com</span>
+                </div>
+                
+                <button type="button" class="btn btn-google">
+                    <i class="fab fa-google"></i>
+                    Entrar com Google
+                </button>
+                
+                <div class="form-footer">
+                    <a href="#" class="link-orange">Esqueci minha senha</a>
+                    <p class="signup-text">Primeira vez aqui? <a href="#" class="link-orange">Criar conta</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Application (Hidden by default) -->
+    <div id="mainApp" class="d-none">
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="images/swift.svg" alt="Swift Logo" style="height: 40px; width: auto;">
+                    <span class="ms-2 fw-bold">Swift Gamification</span>
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                                <img src="https://ui-avatars.com/api/?name=Usuario&background=FF6B35&color=fff" alt="User" class="rounded-circle me-2" width="32" height="32">
+                                <span class="username">Usuário</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Perfil</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configurações</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#" onclick="logout()"><i class="fas fa-sign-out-alt me-2"></i>Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <!-- Page: Home -->
+                <div id="homePage" class="content-page">
+                    <!-- Mission of the Week -->
+                    <div class="mission-banner">
+                        <div class="mission-content">
+                            <h2>Missão da Semana</h2>
+                            <h3>"Liderança Ágil"</h3>
+                            <p>Complete 3 módulos da trilha de Liderança e ganhe pontos extras!</p>
+                            <div class="mission-timer">
+                                <i class="far fa-clock"></i>
+                                <span>Termina em 3 dias</span>
+                            </div>
+                        </div>
+                        <div class="mission-points">
+                            <span class="points-badge">+500 pts</span>
+                        </div>
+                    </div>
+
+                    <!-- Learning Trails -->
+                    <section class="section">
+                        <h2 class="section-title">Trilhas de Aprendizado</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="trail-card" onclick="openTrail('lideranca')">
+                                    <div class="trail-icon leadership">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="trail-info">
+                                        <h3>Trilha de Liderança</h3>
+                                        <p>4 de 8 módulos</p>
+                                        <div class="progress mb-2">
+                                            <div class="progress-bar bg-success" style="width: 50%"></div>
+                                        </div>
+                                        <span class="badge bg-success">50%</span>
+                                    </div>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-lg-4">
+                                <div class="trail-card" onclick="openTrail('inovacao')">
+                                    <div class="trail-icon innovation">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <div class="trail-info">
+                                        <h3>Trilha de Inovação</h3>
+                                        <p>2 de 6 módulos</p>
+                                        <div class="progress mb-2">
+                                            <div class="progress-bar bg-warning" style="width: 33%"></div>
+                                        </div>
+                                        <span class="badge bg-warning">33%</span>
+                                    </div>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-lg-4">
+                                <div class="trail-card" onclick="openTrail('agile')">
+                                    <div class="trail-icon agile">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div class="trail-info">
+                                        <h3>Metodologias Ágeis</h3>
+                                        <p>1 de 5 módulos</p>
+                                        <div class="progress mb-2">
+                                            <div class="progress-bar bg-info" style="width: 20%"></div>
+                                        </div>
+                                        <span class="badge bg-info">20%</span>
+                                    </div>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Team Ranking -->
+                    <section class="section">
+                        <h2 class="section-title">Ranking da Equipe</h2>
+                        <div class="ranking-card">
+                            <div class="ranking-item">
+                                <div class="rank-badge gold">1</div>
+                                <img src="https://ui-avatars.com/api/?name=João+Santos&background=4CAF50&color=fff" alt="João Santos" class="rank-avatar">
+                                <div class="rank-info">
+                                    <h4>João Santos</h4>
+                                </div>
+                                <div class="rank-points">3,200 pts</div>
+                            </div>
+                            
+                            <div class="ranking-item">
+                                <div class="rank-badge silver">2</div>
+                                <img src="https://ui-avatars.com/api/?name=Maria+Silva&background=2196F3&color=fff" alt="Maria Silva" class="rank-avatar">
+                                <div class="rank-info">
+                                    <h4>Maria Silva</h4>
+                                </div>
+                                <div class="rank-points">2,450 pts</div>
+                            </div>
+                            
+                            <div class="ranking-item">
+                                <div class="rank-badge bronze">3</div>
+                                <img src="https://ui-avatars.com/api/?name=Pedro+Lima&background=FF9800&color=fff" alt="Pedro Lima" class="rank-avatar">
+                                <div class="rank-info">
+                                    <h4>Pedro Lima</h4>
+                                </div>
+                                <div class="rank-points">2,100 pts</div>
+                            </div>
+                            
+                            <div class="ranking-item">
+                                <div class="rank-badge">4</div>
+                                <img src="https://ui-avatars.com/api/?name=Ana+Costa&background=9C27B0&color=fff" alt="Ana Costa" class="rank-avatar">
+                                <div class="rank-info">
+                                    <h4>Ana Costa</h4>
+                                </div>
+                                <div class="rank-points">1,850 pts</div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Page: Trail Details -->
+                <div id="trailPage" class="content-page d-none">
+                    <button class="btn btn-link back-button" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    
+                    <div class="trail-header">
+                        <h1 id="trailTitle">Trilha de Liderança</h1>
+                        <div class="trail-progress-info">
+                            <span>Seu Progresso</span>
+                            <div class="progress-circle">50%</div>
+                            <p class="text-muted">4 de 8 módulos completados</p>
+                        </div>
+                    </div>
+
+                    <div class="modules-list" id="modulesList">
+                        <!-- Modules will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Page: Missions -->
+                <div id="missionsPage" class="content-page d-none">
+                    <h1 class="page-title">Missões da Equipe</h1>
+                    
+                    <div class="team-progress">
+                        <h3>Progresso da Equipe</h3>
+                        <div class="progress" style="height: 30px;">
+                            <div class="progress-bar bg-success" style="width: 60%">60%</div>
+                        </div>
+                        <p class="mt-2">3 de 5 missões concluídas</p>
+                    </div>
+
+                    <div class="missions-grid">
+                        <div class="mission-card active">
+                            <div class="mission-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="mission-details">
+                                <span class="mission-status active">Ativa</span>
+                                <h3>Missão da Semana</h3>
+                                <p>Complete 3 módulos da trilha de Liderança em 1 semana</p>
+                                <div class="mission-meta">
+                                    <span><i class="far fa-clock"></i> 3 dias restantes</span>
+                                    <span class="points">+500 pts</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mission-card completed">
+                            <div class="mission-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="mission-details">
+                                <span class="mission-status completed">Concluída</span>
+                                <h3>Inovação em Grupo</h3>
+                                <p>Apresentar 2 ideias inovadoras para o projeto atual</p>
+                                <div class="mission-meta">
+                                    <span><i class="fas fa-check-circle"></i> Completada em 15/05</span>
+                                    <span class="points">+300 pts</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mission-card upcoming">
+                            <div class="mission-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="mission-details">
+                                <span class="mission-status upcoming">Em breve</span>
+                                <h3>Mentoria em Equipe</h3>
+                                <p>Realizar 3 sessões de mentoria com novos membros</p>
+                                <div class="mission-meta">
+                                    <span><i class="far fa-calendar"></i> Inicia em 20/05</span>
+                                    <span class="points">+400 pts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page: Profile -->
+                <div id="profilePage" class="content-page d-none">
+                    <h1 class="page-title">Meu Perfil</h1>
+                    
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <img src="https://ui-avatars.com/api/?name=Usuario&background=FF6B35&color=fff&size=120" alt="User" class="profile-avatar">
+                            <h2>Usuário</h2>
+                            <p class="text-muted">usuario@jbs.com.br</p>
+                            <div class="user-points">
+                                <i class="fas fa-star text-warning"></i>
+                                <span>2,450 pontos</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-trophy"></i>
+                                <div>
+                                    <h3>12</h3>
+                                    <p>Conquistas</p>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>
+                                    <h3>7</h3>
+                                    <p>Módulos Concluídos</p>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-fire"></i>
+                                <div>
+                                    <h3>15</h3>
+                                    <p>Dias de Sequência</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="achievements-section">
+                            <h3>Conquistas Recentes</h3>
+                            <div class="achievements-grid">
+                                <div class="achievement-badge">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Líder Nato</span>
+                                </div>
+                                <div class="achievement-badge">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Inovador</span>
+                                </div>
+                                <div class="achievement-badge">
+                                    <i class="fas fa-users"></i>
+                                    <span>Mentor</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active" onclick="navigateTo('home')">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item" onclick="navigateTo('trails')">
+                <i class="fas fa-road"></i>
+                <span>Trilhas</span>
+            </a>
+            <a href="#" class="nav-item" onclick="navigateTo('missions')">
+                <i class="fas fa-trophy"></i>
+                <span>Missões</span>
+            </a>
+            <a href="#" class="nav-item" onclick="navigateTo('profile')">
+                <i class="fas fa-user"></i>
+                <span>Perfil</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

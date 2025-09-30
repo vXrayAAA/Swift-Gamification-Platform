@@ -1,0 +1,1119 @@
+/* ========================================
+   Global Styles & Variables
+   ======================================== */
+
+:root {
+    --primary-color: #FF6B35;
+    --secondary-color: #004E98;
+    --success-color: #28A745;
+    --warning-color: #FFC107;
+    --info-color: #17A2B8;
+    --danger-color: #DC3545;
+    --light-gray: #F5F7FA;
+    --medium-gray: #E0E0E0;
+    --dark-gray: #333333;
+    --white: #FFFFFF;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ========================================
+   Login Page Styles
+   ======================================== */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.login-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: var(--shadow-lg);
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-badge {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #FF8C61 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.logo-badge i {
+    font-size: 40px;
+    color: var(--white);
+}
+
+.logo-swift {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-swift img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 15px rgba(255, 107, 53, 0.2));
+}
+
+.brand-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--dark-gray);
+    margin-bottom: 5px;
+}
+
+.brand-subtitle {
+    color: #666;
+    font-size: 14px;
+}
+
+.login-form {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--dark-gray);
+    font-size: 14px;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.input-with-icon .form-control {
+    padding-left: 45px;
+    padding-right: 45px;
+    height: 50px;
+    border: 2px solid var(--medium-gray);
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+.input-with-icon .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.1);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.toggle-password:hover {
+    color: var(--primary-color);
+}
+
+.btn-login {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #FF8C61 100%);
+    border: none;
+    border-radius: 12px;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.divider {
+    text-align: center;
+    margin: 25px 0;
+    position: relative;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: var(--medium-gray);
+}
+
+.divider span {
+    background: var(--white);
+    padding: 0 15px;
+    position: relative;
+    color: #999;
+    font-size: 14px;
+}
+
+.btn-google {
+    width: 100%;
+    height: 50px;
+    background: var(--white);
+    border: 2px solid var(--medium-gray);
+    border-radius: 12px;
+    color: var(--dark-gray);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-google:hover {
+    border-color: #4285F4;
+    color: #4285F4;
+    background: #F8F9FA;
+}
+
+.btn-google i {
+    margin-right: 10px;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.link-orange {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.link-orange:hover {
+    text-decoration: underline;
+}
+
+.signup-text {
+    margin-top: 15px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* ========================================
+   Main Application Styles
+   ======================================== */
+
+.navbar {
+    height: 70px;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--dark-gray);
+}
+
+.navbar-brand i {
+    font-size: 24px;
+}
+
+.nav-link {
+    color: var(--dark-gray);
+    font-weight: 500;
+    margin: 0 10px;
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.username {
+    font-weight: 600;
+}
+
+.main-content {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    padding: 20px;
+    min-height: calc(100vh - 140px);
+}
+
+.content-page {
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   Mission Banner
+   ======================================== */
+
+.mission-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 30px;
+    color: var(--white);
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.mission-content {
+    position: relative;
+    z-index: 1;
+}
+
+.mission-content h2 {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 5px;
+}
+
+.mission-content h3 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.mission-content p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.mission-timer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.mission-points {
+    position: relative;
+    z-index: 1;
+}
+
+.points-badge {
+    background: var(--white);
+    color: #764ba2;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: var(--shadow);
+}
+
+/* ========================================
+   Sections
+   ======================================== */
+
+.section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--dark-gray);
+}
+
+.page-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: var(--dark-gray);
+}
+
+/* ========================================
+   Trail Cards
+   ======================================== */
+
+.trail-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+}
+
+.trail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.trail-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.trail-icon.leadership {
+    background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+}
+
+.trail-icon.innovation {
+    background: linear-gradient(135deg, #FF9800 0%, #FFB74D 100%);
+}
+
+.trail-icon.agile {
+    background: linear-gradient(135deg, #2196F3 0%, #42A5F5 100%);
+}
+
+.trail-info {
+    flex: 1;
+}
+
+.trail-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--dark-gray);
+}
+
+.trail-info p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.trail-card > i {
+    color: #999;
+    font-size: 20px;
+}
+
+/* ========================================
+   Ranking Card
+   ======================================== */
+
+.ranking-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.ranking-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    transition: var(--transition);
+}
+
+.ranking-item:hover {
+    background: var(--light-gray);
+}
+
+.rank-badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--white);
+    background: #999;
+    flex-shrink: 0;
+}
+
+.rank-badge.gold {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+}
+
+.rank-badge.silver {
+    background: linear-gradient(135deg, #C0C0C0 0%, #A8A8A8 100%);
+}
+
+.rank-badge.bronze {
+    background: linear-gradient(135deg, #CD7F32 0%, #B8860B 100%);
+}
+
+.rank-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid var(--light-gray);
+}
+
+.rank-info {
+    flex: 1;
+}
+
+.rank-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: var(--dark-gray);
+}
+
+.rank-points {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* ========================================
+   Trail Details Page
+   ======================================== */
+
+.back-button {
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.back-button:hover {
+    color: var(--primary-color);
+}
+
+.trail-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.trail-header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.trail-progress-info {
+    display: inline-block;
+    background: var(--white);
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.progress-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--success-color) 0%, #66BB6A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 28px;
+    font-weight: bold;
+    margin: 15px auto;
+}
+
+.modules-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.module-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.module-card:hover {
+    border-color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.module-card.completed {
+    opacity: 0.7;
+}
+
+.module-card.completed .module-icon {
+    background: var(--success-color);
+}
+
+.module-card.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.module-card.locked:hover {
+    transform: none;
+    border-color: transparent;
+}
+
+.module-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--info-color) 0%, #42A5F5 100%);
+    flex-shrink: 0;
+}
+
+.module-details {
+    flex: 1;
+}
+
+.module-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.module-status.completed {
+    background: #D4EDDA;
+    color: #155724;
+}
+
+.module-status.in-progress {
+    background: #FFF3CD;
+    color: #856404;
+}
+
+.module-status.locked {
+    background: #E0E0E0;
+    color: #666;
+}
+
+.module-details h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.module-details p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.module-meta {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    color: #999;
+}
+
+.module-meta .points {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.module-action {
+    flex-shrink: 0;
+}
+
+.btn-start {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-start:hover {
+    background: #FF8C61;
+    transform: scale(1.05);
+}
+
+/* ========================================
+   Missions Page
+   ======================================== */
+
+.team-progress {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+.team-progress h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.missions-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.mission-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    gap: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.mission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.mission-card.active {
+    border-color: var(--primary-color);
+}
+
+.mission-card.completed {
+    opacity: 0.8;
+}
+
+.mission-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: var(--white);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    flex-shrink: 0;
+}
+
+.mission-details {
+    flex: 1;
+}
+
+.mission-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.mission-status.active {
+    background: #FFF3CD;
+    color: #856404;
+}
+
+.mission-status.completed {
+    background: #D4EDDA;
+    color: #155724;
+}
+
+.mission-status.upcoming {
+    background: #D1ECF1;
+    color: #0C5460;
+}
+
+.mission-details h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.mission-details p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.mission-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.mission-meta .points {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* ========================================
+   Profile Page
+   ======================================== */
+
+.profile-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 5px solid var(--light-gray);
+}
+
+.profile-header h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.user-points {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--light-gray);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 30px 0;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.stat-item i {
+    font-size: 32px;
+    color: var(--primary-color);
+}
+
+.stat-item h3 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.stat-item p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.achievements-section {
+    padding-top: 30px;
+}
+
+.achievements-section h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.achievement-badge {
+    background: var(--light-gray);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.achievement-badge:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+.achievement-badge i {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.achievement-badge span {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ========================================
+   Bottom Navigation
+   ======================================== */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.bottom-nav .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: #999;
+    text-decoration: none;
+    transition: var(--transition);
+    padding: 5px 15px;
+    border-radius: 10px;
+}
+
+.bottom-nav .nav-item i {
+    font-size: 22px;
+}
+
+.bottom-nav .nav-item span {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.bottom-nav .nav-item.active {
+    color: var(--primary-color);
+}
+
+.bottom-nav .nav-item:hover {
+    color: var(--primary-color);
+    background: var(--light-gray);
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 768px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    .brand-title {
+        font-size: 24px;
+    }
+
+    .mission-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .mission-content h3 {
+        font-size: 24px;
+    }
+
+    .trail-card {
+        flex-wrap: wrap;
+    }
+
+    .module-card,
+    .mission-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .profile-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-card {
+        max-width: 100%;
+    }
+
+    .ranking-item {
+        font-size: 14px;
+    }
+
+    .rank-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .rank-badge {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+.d-none {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.text-muted {
+    color: #666 !important;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
